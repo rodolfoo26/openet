@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OPET NET</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+    .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+    }
+    #menu a {
+        color: #FFF;
+        background-color: #252525;
+        text-decoration: none;
+        border-bottom: transparent solid 1px;
+        padding-bottom: 5px;
+    }
+
+    #menu a:hover {
+        color: #FFF;
+        background-color: #252525;
+        border-bottom: #00ff00 solid 1px;
+    }
+
+    .jumbotron.header{
+        background-color: green; 
+        color: white; 
+        background-image: linear-gradient(green, #003300);
+    }
+</style>
+
+<div class="jumbotron header text-center" style="max-height: 160px" >
+    <h1>OPENET</h1>
+    <p>Escola e aluno cada vez mais próximos!</p> 
+</div>
+
+<div class="container mt-4">
+    <form action="submit", method="POST">{% csrf_token %}
+        <div class="form-group">
+            <p>&nbsp;&nbsp;</p>
+        </div>
+        <div class="form-group">
+            <label for="username">&nbsp;&nbsp;Usuário: </label>
+            <input type="text",class="form-control" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="password">&nbsp;&nbsp;Senha:&nbsp;&nbsp;</label>
+            <input type="password",class="form-control" id="password" name="password" placeholder="Senha">
+        </div>
+        
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+    </form>
+</div>
+<div class="container mt-4">
+    <a href="/register/">
+        <button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cadastrar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </a>
+    <label >&nbsp;</label>
+    <a href="/login/">
+        <button type="button" class="btn btn-info">Recuperar Senha</button>
+    </a>
+</div>
+
+</body>
+</html>

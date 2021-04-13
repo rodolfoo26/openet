@@ -1,0 +1,69 @@
+{% extends "model-page.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1 class="text-center">Seja Bem Vindo - Alterar Cadastro</h1>
+    <br>
+    <form enctype="multipart/form-data" action="submit", method="POST">{% csrf_token %}
+        <div class="container">
+            <div class="form-group">
+                <label for="first_name">Nome:</label>
+                <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}">
+            </div>    
+            
+            <div class="form-group">
+                <label for="last_name">Sobrenome:</label>
+                <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}">
+            </div>   
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" value="{{ user.email }}">
+            </div>
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" class="form-control" name="matricula" value="{{ user.matricula }}">
+            </div>   
+            <div class="form-group">
+                <label for="ano">Ano:</label>
+                <input type="text" class="form-control" name="ano" value="{{ user.ano }}">
+            </div>  
+            <div class="form-group" hidden>
+                <label for="curso" >Curso:</label>
+                <input type="text" class="form-control" name="curso" value="{{ user.curso }}" >
+            </div> 
+            
+            <p></p>
+            <!--
+            <div class="form-group">
+                <label for="phone">Telefone:</label>
+                <input type="tel" class="form-control" name="phone" value="{{ aluno.phone }}">
+            </div>   
+            <div class="form-group">
+                <label for="curso" >Curso:</label>
+                <input type="text" class="form-control" name="curso" value="{{ user.curso }}" >
+            </div> 
+            
+            <div class="form-group">
+                <label for="city">Cidade:</label>
+                <input type="text" class="form-control" name="city" value="{{ aluno.city }}">
+            </div>    
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" class="form-control" name="matricula" value="{{ aluno.matricula }}">
+            </div>    
+            -->
+            <button type="submit" class="btn btn-primary">
+                {% if user %}
+                    Alterar
+                {% else %}
+                    Cadastrar
+                {% endif %}
+            </button>
+        </div>
+      </form>
+      <br>
+
+
+{% endblock %}
