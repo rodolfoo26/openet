@@ -16,6 +16,11 @@
 {% block content %}
     <div class="container">
             <div class="row">
+                {% if user.ativo %}
+
+                {% else %}
+                    <p><u><b>{{ user.first_name }}, seu cadastro está em análise.</b></u></p>
+                {% endif %}
             </div>
         </div>  
     </div>  

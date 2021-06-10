@@ -36,21 +36,28 @@
 </div>
 <div id="menu" >
     <ul class="nav ml-4" >
-        <li class="nav-item">
-            <a class="nav-link" href="/aluno/register/">Cadastro</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pet/user/">Grupos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pet/register/">Amigos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pet/register/">Posts</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pet/register/">Histórico</a>
-        </li>
+        {% if user.ativo %}
+            <li class="nav-item">
+                <a class="nav-link" href="/aluno/register/">Cadastro</a>
+            </li>
+            {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/aluno/accept/">Aceitar</a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="/pet/user/">Grupos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pet/register/">Amigos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pet/register/">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pet/register/">Histórico</a>
+            </li>
+        {% endif %}
     </ul>
 </div>
 <br>

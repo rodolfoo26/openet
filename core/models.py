@@ -5,4 +5,5 @@ class User(AbstractUser):
     matricula = models.CharField(max_length=100)
     ano = models.IntegerField(blank=True, null=True)
     curso = models.CharField(max_length=100)
+    ativo = models.BooleanField(default=False)
 

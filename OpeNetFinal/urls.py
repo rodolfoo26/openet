@@ -29,6 +29,10 @@ urlpatterns = [
     path('login/submit', views.submit_login),
     path('register/', register_new_user.as_view(),name='registrar'),
     path('aluno/register/', views.register_aluno),
+    path('aluno/accept/', views.accept_aluno),
+    path('aluno/detail/<slug:id>/', views.user_detail),
+    path('user/delete/<slug:id>/', views.delete_user),
+    path('user/accept/admin/<slug:id>/', views.admin_accept_user),
     path('aluno/register/submit', views.set_aluno),
     path('logout/', views.logout_user),
     path('', RedirectView.as_view(url='pet/all/'))

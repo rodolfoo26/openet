@@ -20,6 +20,31 @@ def register_aluno(request):
     return render(request, 'register-aluno.html',args)
 
 @login_required(login_url='/login/')
+def accept_aluno(request):
+    user = User.objects.filter(ativo=False)
+    return render(request, 'accept.html',{'user':user})
+
+
+def user_detail(request, id):
+    user = User.objects.get(id=id)
+    return render(request, 'accept2.html', {'user':user})
+
+@login_required(login_url='/login/')
+def delete_user(request, id):
+    user1 = User.objects.get(id=id)
+    user1.delete()
+    return redirect('/')
+
+@login_required(login_url='/login/')
+def admin_accept_user(request, id):
+    user1 = User.objects.get(id=id)
+    user1.ativo = True
+    user1.save()
+    url = '/pet/all/'
+    return redirect(url)
+
+
+@login_required(login_url='/login/')
 def list_login(request):
     return render(request, 'list.html')
 
